@@ -18,5 +18,6 @@ Packages used in this project
 IMPORTANT NOTE: 
 
 *It's my first Livewire project ever so maybe it's not clear code enough but i will work on this in upcoming projects *
+*I'm worst one to choose colors*
 
 
