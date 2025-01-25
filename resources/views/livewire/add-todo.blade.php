@@ -7,7 +7,7 @@
                     <div>
                         <label for="task" class="block text-sm font-medium text-gray-700">Task</label>
                         <input type="text" id="task" wire:model="task"
-                            class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-400"
+                            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             placeholder="Enter your task">
                         @error('task')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -18,7 +18,7 @@
                     <div class="mt-4">
                         <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                         <textarea id="description" wire:model="description"
-                            class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-400"
+                            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             placeholder="Enter task description"></textarea>
                         @error('description')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -29,7 +29,7 @@
                     <div class="mt-4">
                         <label for="due_date" class="block text-sm font-medium text-gray-700">Due Date</label>
                         <input type="date" id="due_date" wire:model="due_date"
-                            class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                         @error('due_date')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -39,7 +39,7 @@
                     <div class="mt-4">
                         <label for="priority" class="block text-sm font-medium text-gray-700">Priority</label>
                         <select id="priority" wire:model="priority"
-                            class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                             <option value="">Select Priority</option>
                             <option value="Low">Low</option>
                             <option value="Medium">Medium</option>

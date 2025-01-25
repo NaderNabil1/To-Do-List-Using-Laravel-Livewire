@@ -4,48 +4,49 @@
             type="text"
             placeholder="Search tasks..."
             wire:model.live="search"
-            class="block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-400">
+            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-500 dark:placeholder-gray-400">
 
         <select wire:model.live="type"
-            class="block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
             <option value="All">All</option>
             <option value="Pending">Pending</option>
             <option value="Completed">Completed</option>
         </select>
     </div>
 
+
     <ul class="mt-6 space-y-6">
         @forelse ($todos as $todo)
-            <li class="p-6 rounded-lg shadow-md border border-gray-600"
-                style="background-color: {{ $todo->status === 'Completed' ? '#013220' : '#1A202C' }}; color: {{ $todo->status === 'Completed' ? 'white' : 'inherit' }};">
+            <li class="p-6 rounded-lg shadow-md border border-600"
+                style="background-color: {{ $todo->status === 'Completed' ? '#013220' : '#938C89' }}; color: {{ $todo->status === 'Completed' ? 'white' : 'inherit' }};">
 
                 @if ($editTodoId === $todo->id)
                     <!-- Edit Mode -->
                     <div class="mb-4">
                         <input type="text" wire:model="task"
-                            class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-400">
+                            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                     </div>
                     @error('task')
                         <span class="text-red-500 text-sm">{{ $task }}</span>
                     @enderror
                     <textarea wire:model="description"
-                        class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-400"></textarea>
+                        class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
                     @error('description')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                     <input type="date" wire:model="due_date"
-                        class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
 
                     <!-- Priority, Due Date, and Status -->
                     <div class="grid grid-cols-3 gap-4 mb-4">
                         <select wire:model="priority"
-                            class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                             <option value="Low">Low</option>
                             <option value="Medium">Medium</option>
                             <option value="High">High</option>
                         </select>
                         <select wire:model="status"
-                            class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            class="block w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                             <option value="Pending">Pending</option>
                             <option value="Completed">Completed</option>
                             <option value="In Progress">In Progress</option>
@@ -90,7 +91,7 @@
                             </span>
 
                             <!-- Due Date -->
-                            <span class="text-sm font-medium text-gray-300">
+                            <span class="text-sm font-medium text-gray-300" style="background-color: {{ $todo->due_date < now() ? 'red' : '' }};" >
                                 <strong>Due Date:</strong> {{ $todo->due_date ? $todo->due_date : 'N/A' }}
                             </span>
 
