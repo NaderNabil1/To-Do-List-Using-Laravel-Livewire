@@ -15,7 +15,7 @@
     </div>
 
     <ul class="mt-6 space-y-6">
-        @foreach ($todos as $todo)
+        @forelse ($todos as $todo)
             <li class="p-6 rounded-lg shadow-md border border-gray-600"
                 style="background-color: {{ $todo->status === 'Completed' ? '#013220' : '#1A202C' }}; color: {{ $todo->status === 'Completed' ? 'white' : 'inherit' }};">
 
@@ -121,7 +121,12 @@
                     </div>
                 @endif
             </li>
-        @endforeach
+        @empty
+        <div class="text-center text-gray-500 mt-6">
+            <img  src="{{asset('images/no-task.png')}}"alt="No Todos Available" class="mx-auto mb-4 w-32 h-32 object-contain">
+            No Todos available. Create your first task to get started!
+        </div>
+        @endforelse
     </ul>
     <div class="mt-6">
         {{ $todos->links() }}
