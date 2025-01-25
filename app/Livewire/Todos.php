@@ -61,8 +61,7 @@ class Todos extends Component
 
         if ($todo && $todo->user_id === auth()->id()) {
             $todo->delete();
-
-            $this->todos = $this->todos->filter(fn ($item) => $item->id !== $id);
+            return redirect()->route('home');
         }
     }
 

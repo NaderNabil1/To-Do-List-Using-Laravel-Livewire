@@ -25,8 +25,14 @@
                         <input type="text" wire:model="task"
                             class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-400">
                     </div>
+                    @error('task')
+                        <span class="text-red-500 text-sm">{{ $task }}</span>
+                    @enderror
                     <textarea wire:model="description"
                         class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-400"></textarea>
+                    @error('description')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                     <input type="date" wire:model="due_date"
                         class="mt-1 block w-full bg-gray-800 text-white border-gray-600 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
 
